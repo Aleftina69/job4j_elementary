@@ -2,8 +2,9 @@ package ru.job4j.condition;
 
 public class TriangleArea {
     public static double area(double a, double b, double c) {
-        double four = Math.sqrt(16);
-        return four;
+        double p = (a + b + c) / 2.0;
+        double s = Math.sqrt(p * (p - a) * (p - b) * (p - c));
+        return s;
     }
 
     public static void main(String[] args) {
