@@ -22,5 +22,3 @@ public class MathCalculator {
                 + differenceAndDivision(first, second);
     }
 }
-
-

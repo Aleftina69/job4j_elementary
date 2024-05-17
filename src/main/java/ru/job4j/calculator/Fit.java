@@ -49,4 +49,3 @@ public class Fit {
        printWeightResults(height);
     }
 }
-

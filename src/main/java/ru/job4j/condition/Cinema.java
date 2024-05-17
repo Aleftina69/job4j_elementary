@@ -15,4 +15,3 @@ public class Cinema {
         Cinema.access(16);
     }
 }
-
