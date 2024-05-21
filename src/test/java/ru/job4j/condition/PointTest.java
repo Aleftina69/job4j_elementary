@@ -44,7 +44,7 @@ class PointTest {
     void when123to456then4dot24() {
         double expected = 4.24;
         Point a = new Point(1, 2, 3);
-        Point b = new Point(4,5, 6);
+        Point b = new Point(4, 5, 6);
         double output = a.distance(b);
         assertThat(output).isEqualTo(expected, withPrecision(0.01));
     }
