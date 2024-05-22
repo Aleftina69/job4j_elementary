@@ -1,51 +1,54 @@
 package ru.job4j.calculator;
 
 /**
- * Класс Fit предназначен для расчета идеального веса на основе роста.
- * Предоставляет методы для расчета веса для мужчин и женщин.
+ * Класс Fit рассчитывает идеальный вес для мужчин и женщин на основе их роста.
  */
 public class Fit {
-    private static final short BASE_HEIGHT_MAN = 100;
-    private static final short BASE_HEIGHT_WOMAN = 110;
-    private static final double WEIGHT_COEFFICIENT = 1.15;
+
+    // Константы для расчета
+    private static final double MAN_CONSTANT = 100;
+    private static final double WOMAN_CONSTANT = 110;
+    private static final double MULTIPLIER = 1.15;
 
     /**
-     * Рассчитывает идеальный вес для мужчин на основе их роста.
-     * @param height Рост мужчины в сантиметрах.
-     * @return Идеальный вес в килограммах.
+     * Рассчитывает идеальный вес для мужчины на основе его роста.
+     *
+     * @param heightMan рост мужчины в сантиметрах
+     * @return идеальный вес для мужчины
      */
-    public static double calculateManWeight(short height) {
-        double result = (height - BASE_HEIGHT_MAN) * WEIGHT_COEFFICIENT;
-        return result;
+    public static double manWeight(short heightMan) {
+        if (heightMan <= 0 || heightMan >= 300) {
+            throw new IllegalArgumentException("Рост должен быть в диапазоне от 1 до 299 см.");
+        }
+        return (heightMan - MAN_CONSTANT) * MULTIPLIER;
     }
 
     /**
-     * Рассчитывает идеальный вес для женщин на основе их роста.
-     * @param height Рост женщины в сантиметрах.
-     * @return Идеальный вес в килограммах.
+     * Рассчитывает идеальный вес для женщины на основе ее роста.
+     *
+     * @param heightWoman рост женщины в сантиметрах
+     * @return идеальный вес для женщины
      */
-    public static double calculateWomanWeight(short height) {
-        double result = (height - BASE_HEIGHT_WOMAN) * WEIGHT_COEFFICIENT;
-        return result;
+    public static double womanWeight(short heightWoman) {
+        if (heightWoman <= 0 || heightWoman >= 300) {
+            throw new IllegalArgumentException("Рост должен быть в диапазоне от 1 до 299 см.");
+        }
+        return (heightWoman - WOMAN_CONSTANT) * MULTIPLIER;
     }
 
     /**
-     * Выводит в консоль расчетные значения идеального веса для мужчин и женщин.
-     * @param height Рост, для которого необходимо рассчитать вес.
-     */
-    public static void printWeightResults(short height) {
-        double manWeight = calculateManWeight(height);
-        double womanWeight = calculateWomanWeight(height);
-        System.out.println("Вес мужчины с ростом " + height + " см составляет: " + manWeight + " кг");
-        System.out.println("Вес женщины с ростом " + height + " см составляет: " + womanWeight + " кг");
-    }
-
-    /**
-     * Главный метод для демонстрации расчета идеального веса.
-     * @param args Аргументы командной строки (не используются).
+     * Главный метод для тестирования методов класса Fit.
+     *
+     * @param args аргументы командной строки
      */
     public static void main(String[] args) {
-        short height = 187;
-       printWeightResults(height);
+        short heightMan = 187;
+        short heightWoman = 170;
+
+        double man = Fit.manWeight(heightMan);
+        System.out.println("Идеальный вес для мужчины ростом 187 см: " + man + " кг");
+
+        double woman = Fit.womanWeight(heightWoman);
+        System.out.println("Идеальный вес для женщины ростом 170 см: " + woman + " кг");
     }
 }
