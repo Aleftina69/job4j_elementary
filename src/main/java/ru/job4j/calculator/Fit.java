@@ -4,8 +4,6 @@ package ru.job4j.calculator;
  * Класс Fit рассчитывает идеальный вес для мужчин и женщин на основе их роста.
  */
 public class Fit {
-
-    // Константы для расчета
     private static final double MAN_CONSTANT = 100;
     private static final double WOMAN_CONSTANT = 110;
     private static final double MULTIPLIER = 1.15;
